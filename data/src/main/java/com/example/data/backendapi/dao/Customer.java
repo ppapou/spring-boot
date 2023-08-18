@@ -1,4 +1,4 @@
-package com.example.data;
+package com.example.data.backendapi.dao;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

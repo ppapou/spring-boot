@@ -6,6 +6,8 @@ package com.example.data;
  * Don't use Spring Data REST starter
  */
 
+import com.example.data.backendapi.dao.Customer;
+import com.example.data.backendapi.repo.CustomerRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
