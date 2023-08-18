@@ -16,12 +16,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
-public class DataApplication {
+public class CustomerDataApplication {
 
-	private static final Logger log = LoggerFactory.getLogger(DataApplication.class);
+	private static final Logger log = LoggerFactory.getLogger(CustomerDataApplication.class);
 
 	public static void main(String[] args) {
-		SpringApplication.run(DataApplication.class);
+		SpringApplication.run(CustomerDataApplication.class);
 	}
 
 	//TODO: the demo method will be removed
