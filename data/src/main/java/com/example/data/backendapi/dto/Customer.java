@@ -1,10 +1,13 @@
-package com.example.data.backendapi.dao;
+package com.example.data.backendapi.dto;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
+/**
+ * CLient's objects with personal information
+ */
 @Entity
 public class Customer {
 

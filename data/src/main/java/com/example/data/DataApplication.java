@@ -6,8 +6,8 @@ package com.example.data;
  * Don't use Spring Data REST starter
  */
 
-import com.example.data.backendapi.dao.Customer;
-import com.example.data.backendapi.repo.CustomerRepository;
+import com.example.data.backendapi.dto.Customer;
+import com.example.data.backendapi.dao.CustomerRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -38,11 +38,6 @@ public class DataApplication {
 			log.info("Customers found with findAll():");for (Customer customer : repository.findAll()) {
 				log.info(customer.toString());
 			}
-
-			// fetch an individual customer by ID
-			Customer customer = repository.findById(1L);
-			log.info("Customer found with findById(1L):");
-			log.info(customer.toString());
 
 			// fetch customers by last name
 			log.info("Customer found with findByLastName('Bauer'):");
