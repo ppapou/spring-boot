@@ -24,6 +24,7 @@ public class DataApplication {
 		SpringApplication.run(DataApplication.class);
 	}
 
+	//TODO: the demo method will be removed
 	@Bean
 	public CommandLineRunner demo(CustomerRepository repository) {
 		return (args) -> {
