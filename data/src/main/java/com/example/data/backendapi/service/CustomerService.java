@@ -5,8 +5,10 @@ import com.example.data.backendapi.dto.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 
+import java.util.Optional;
+
 @Scope("singleton")
-public class Client {
+public class CustomerService {
 
     @Autowired
     private CustomerRepository repository;
@@ -25,6 +27,10 @@ public class Client {
      */
     public Iterable<Customer> getAll() {
         return repository.findAll();
+    }
+
+    public Optional<Customer> findById(Long id) {
+        return repository.findById(id);
     }
 
 }
