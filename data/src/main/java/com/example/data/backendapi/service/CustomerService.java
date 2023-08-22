@@ -11,7 +11,11 @@ import java.util.Optional;
 public class CustomerService {
 
     @Autowired
-    private CustomerRepository repository;
+    public CustomerService(CustomerRepository repository) {
+        this.repository = repository;
+    }
+
+    private final CustomerRepository repository;
 
     /**
      * Save client record in the repository
@@ -29,8 +33,20 @@ public class CustomerService {
         return repository.findAll();
     }
 
+    /**
+     *
+     * @param id
+     * @return Client by id number
+     */
     public Optional<Customer> findById(Long id) {
         return repository.findById(id);
     }
 
+    /**
+     * Remove client record from repository
+     * @param customer
+     */
+    public void delete(Customer customer) {
+        repository.delete(customer);
+    }
 }

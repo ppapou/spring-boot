@@ -8,7 +8,7 @@ import jakarta.persistence.Id;
 import java.util.Objects;
 
 /**
- * CLient's objects with personal information
+ * Client's objects with personal information
  */
 @Entity
 public class Customer {
