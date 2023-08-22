@@ -5,8 +5,6 @@ package com.example.data;
  * Use Spring Data module
  * Don't use Spring Data REST starter
  */
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
