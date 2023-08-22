@@ -3,14 +3,12 @@ package com.example.data.backendapi.service;
 import com.example.data.backendapi.dao.CustomerRepository;
 import com.example.data.backendapi.dto.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
-
+import org.springframework.stereotype.Service;
 import java.util.Optional;
 
-@Scope("singleton")
+@Service
 public class CustomerService {
 
-    @Autowired
     public CustomerService(CustomerRepository repository) {
         this.repository = repository;
     }
@@ -21,8 +19,8 @@ public class CustomerService {
      * Save client record in the repository
      * @param customer
      */
-    public void save(Customer customer) {
-        repository.save(customer);
+    public Customer save(Customer customer) {
+        return repository.save(customer);
     }
 
     /**
@@ -46,7 +44,7 @@ public class CustomerService {
      * Remove client record from repository
      * @param customer
      */
-    public void delete(Customer customer) {
-        repository.delete(customer);
+    public void delete(Long id) {
+        repository.deleteById(id);
     }
 }
