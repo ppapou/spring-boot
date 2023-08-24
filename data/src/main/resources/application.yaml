@@ -1,0 +1,9 @@
+spring:
+  security:
+    oauth2:
+      project: example
+      client:
+        registration:
+          github:
+            clientId: <git-hub client>
+            clientSecret: <git-hub secret>

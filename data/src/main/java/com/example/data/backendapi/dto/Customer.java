@@ -4,7 +4,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import org.springframework.security.core.GrantedAuthority;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Objects;
 
 /**
@@ -18,8 +21,11 @@ public class Customer {
     private Long id;
     private String firstName;
     private String lastName;
+    private String userName;
+    private String password;
+    private Collection<GrantedAuthority> grantedAuthoritiesList = new ArrayList<>();
 
-    protected Customer() {}
+    public Customer() {}
 
     public Customer(String firstName, String lastName) {
         this.firstName = firstName;
@@ -60,4 +66,16 @@ public class Customer {
     public String getLastName() {
         return lastName;
     }
+
+    public String getPassword() { return password;}
+
+    public void setPassword(String password) {this.password = password;}
+
+    public String getUsername() {return userName;}
+
+    public void setUsername(String username) {this.userName = username;}
+
+    public Collection<GrantedAuthority> getGrantedAuthoritiesList() {return grantedAuthoritiesList;}
+
+    public void setGrantedAuthoritiesList(Collection<GrantedAuthority> grantedAuthoritiesList) {this.grantedAuthoritiesList = grantedAuthoritiesList;}
 }
