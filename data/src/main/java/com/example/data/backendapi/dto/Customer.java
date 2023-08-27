@@ -55,10 +55,7 @@ public class Customer {
                 id, firstName, lastName);
     }
 
-    public Long getId() {
-        return id;
-    }
-
+    public  Long getId(){return this.id;}
     public String getFirstName() {
         return firstName;
     }

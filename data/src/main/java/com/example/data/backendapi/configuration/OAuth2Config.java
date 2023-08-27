@@ -1,6 +1,6 @@
 package com.example.data.backendapi.configuration;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.data.backendapi.dto.JwtSecretParams;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,20 +15,19 @@ import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 
 @Configuration
 public class OAuth2Config extends AuthorizationServerConfigurerAdapter {
-    private String clientid = "<git-hub-client>";
-    private String clientSecret = "my-secret-key";
-    private String privateKey = "private key";
-    private String publicKey = "public key";
 
-    @Autowired
-    @Qualifier("authenticationManagerBean")
     private AuthenticationManager authenticationManager;
+    private JwtSecretParams jwtSecretParams;
+    public OAuth2Config(@Qualifier("authenticationManagerBean") AuthenticationManager authenticationManager, JwtSecretParams jwtSecretParams) {
+        this.jwtSecretParams = jwtSecretParams;
+        this.authenticationManager = authenticationManager;
+    }
 
     @Bean
     public JwtAccessTokenConverter tokenEnhancer() {
         JwtAccessTokenConverter converter = new JwtAccessTokenConverter();
-        converter.setSigningKey(privateKey);
-        converter.setVerifierKey(publicKey);
+        converter.setSigningKey(jwtSecretParams.getPrivateKey());
+        converter.setVerifierKey(jwtSecretParams.getPublicKey());
         return converter;
     }
     @Bean
@@ -46,7 +45,7 @@ public class OAuth2Config extends AuthorizationServerConfigurerAdapter {
     }
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-        clients.inMemory().withClient(clientid).secret(clientSecret).scopes("read", "write")
+        clients.inMemory().withClient(jwtSecretParams.getClientId()).secret(jwtSecretParams.getClientSecret()).scopes("read", "write")
                 .authorizedGrantTypes("password", "refresh_token").accessTokenValiditySeconds(20000)
                 .refreshTokenValiditySeconds(20000);
 

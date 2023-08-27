@@ -9,11 +9,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 
-//TODO: Prepare the Database file for users
 @Configuration
 public class LoadRepository {
 
-    private static final Logger log = LoggerFactory.getLogger(LoadRepository.class);
     @Bean
     public CommandLineRunner demo(CustomerRepository repository) {
         return (args) -> {

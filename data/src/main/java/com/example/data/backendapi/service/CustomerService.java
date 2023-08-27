@@ -1,7 +1,6 @@
 package com.example.data.backendapi.service;
 
 import com.example.data.backendapi.dao.CustomerRepository;
-import com.example.data.backendapi.dao.OAuth;
 import com.example.data.backendapi.dto.Customer;
 import com.example.data.backendapi.user.CustomUser;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -14,38 +13,25 @@ import java.util.Optional;
 @Service
 public class CustomerService implements UserDetailsService {
 
-    public CustomerService(CustomerRepository repository, OAuth oAuth) {
+    public CustomerService(CustomerRepository oAuth) {
         this.oAuth = oAuth;
-        this.repository = repository;
-
-    }
-
-    private final CustomerRepository repository;
-    private final OAuth oAuth;
+   }
+    private final CustomerRepository oAuth;
 
     /**
      * Save client record in the repository
      * @param customer
      */
     public Customer save(Customer customer) {
-        return repository.save(customer);
+        return oAuth.save(customer);
     }
-
-    /**
-     *
-     * @return ALL records from the repository
-     */
-    public Iterable<Customer> getAll() {
-        return repository.findAll();
-    }
-
     /**
      *
      * @param id
      * @return Client by id number
      */
     public Optional<Customer> findById(Long id) {
-        return repository.findById(id);
+        return oAuth.findById(id);
     }
 
     /**
@@ -53,7 +39,7 @@ public class CustomerService implements UserDetailsService {
      * @param id
      */
     public void delete(Long id) {
-        repository.deleteById(id);
+        oAuth.deleteById(id);
     }
 
     @Override
