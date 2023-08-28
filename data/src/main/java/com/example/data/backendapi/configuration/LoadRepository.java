@@ -12,7 +12,6 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class LoadRepository {
 
-    private static final Logger log = LoggerFactory.getLogger(LoadRepository.class);
     @Bean
     public CommandLineRunner demo(CustomerRepository repository) {
         return (args) -> {

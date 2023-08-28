@@ -1,0 +1,18 @@
+spring:
+#  datasource:
+#    driverClassName: org.h2.Driver
+#  jpa:
+#    properties:
+#      hibernate:
+#        dialect: org.hibernate.dialect.H2Dialect
+#    database:
+#      database-platform: org.hibernate.dialect.H2Dialect
+  security:
+    oauth2:
+      resource:
+        filter-order: 3
+      client:
+        registration:
+          github:
+            clientId: <git-hub client>
+            clientSecret: <git-hub secret>
